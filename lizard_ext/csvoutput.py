@@ -1,6 +1,20 @@
+'''
+This module extends the default output formatting to include CSV.
 
-import pprint
+The output is intended to be the same in structure, with additional
+tokens (to reduce the need to post-process), and a reduced verbosity
+due to the nature of CSV outputs. The differences are:
 
+ * No summary of the included files, only the output
+   respective of each function.
+ * No additional output for functions that break any CCN
+   thresholds.
+ * Each line has four additional, individual tokens:
+     * File name
+     * Function Name
+     * Function line start
+     * Function line end
+'''
 def print_csv(results, options, _):
     csv_output(list(results), options.verbose)
     return 0
